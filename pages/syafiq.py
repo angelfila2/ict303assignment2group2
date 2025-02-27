@@ -17,10 +17,10 @@ st.set_page_config(
 # Sidebar - File Upload
 # ===========================
 st.sidebar.header("📂 Upload Workforce Data")
-workforce_file = st.sidebar.file_uploader("Upload workforce.csv", type=["csv"])
+workforce_file = None
 
 st.sidebar.header("📂 Upload Healthcare Expenditure Data")
-healthcare_file = st.sidebar.file_uploader("Upload healthcareExpenditure.csv", type=["csv"])
+healthcare_file = None
 
 # Load default files if not uploaded
 if workforce_file is None:
