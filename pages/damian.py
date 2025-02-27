@@ -16,7 +16,7 @@ st.write("This dashboard visualizes immunisation and disease datasets.")
 def load_data():
     try:
         # Update file paths based on your provided structure
-        immunisation_path = "gdp-dashboard/data/Immunization_expenditure.xlsx"
+        immunisation_path = "gdp-dashboard/data/Immunization_expenditure.csv"
         disease_path = "gdp-dashboard/data/Infectious_Disease.csv"
         
         # Check if the files exist
