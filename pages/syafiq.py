@@ -22,14 +22,14 @@ st.set_page_config(
 # st.sidebar.header("📂 Upload Healthcare Expenditure Data")
 # healthcare_file = st.sidebar.file_uploader("Upload healthcareExpenditure.csv", type=["csv"])
 
-DATA_FILENAME = Path(__file__).parent/'data/workforce.csv'
-workforce_file = pd.read_csv(DATA_FILENAME)
+DATA_FILENAME1 = Path(__file__).parent/'data/workforce.csv'
+workforce_file = pd.read_csv(DATA_FILENAME1)
 
-DATA_FILENAME = Path(__file__).parent/'data/healthcareExpenditure.csv'
-healthcare_file = pd.read_csv(DATA_FILENAME)
+DATA_FILENAME2 = Path(__file__).parent/'data/healthcareExpenditure.csv'
+healthcare_file = pd.read_csv(DATA_FILENAME2)
 if workforce_file and healthcare_file:
-    df_workforce = pd.read_csv(workforce_file)
-    df_healthcare = pd.read_csv(healthcare_file, skiprows=4)  # Skipping first 4 rows
+    df_workforce = pd.read_csv(DATA_FILENAME1)
+    df_healthcare = pd.read_csv(DATA_FILENAME2, skiprows=4)  # Skipping first 4 rows
 
     # Clean column names
     df_workforce.columns = df_workforce.columns.astype(str).str.strip()
