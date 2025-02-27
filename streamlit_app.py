@@ -1,151 +1,119 @@
 import streamlit as st
 import pandas as pd
-import math
-from pathlib import Path
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-# Set the title and favicon that appear in the Browser's tab bar.
+# ===========================
+# Streamlit Page Configuration
+# ===========================
 st.set_page_config(
-    page_title='GDP dashboard',
-    page_icon=':earth_americas:', # This is an emoji shortcode. Could be a URL too.
+    page_title="Healthcare Workforce & Expenditure",
+    page_icon="🏥",
+    layout="wide"
 )
 
-# -----------------------------------------------------------------------------
-# Declare some useful functions.
+# ===========================
+# Load Workforce Data
+# ===========================
+st.sidebar.header("📂 Upload Workforce Data")
+workforce_file = st.sidebar.file_uploader("Upload workforce.csv", type=["csv"])
 
-@st.cache_data
-def get_gdp_data():
-    """Grab GDP data from a CSV file.
+st.sidebar.header("📂 Upload Healthcare Expenditure Data")
+healthcare_file = st.sidebar.file_uploader("Upload healthcareExpenditure.csv", type=["csv"])
 
-    This uses caching to avoid having to read the file every time. If we were
-    reading from an HTTP endpoint instead of a file, it's a good idea to set
-    a maximum age to the cache with the TTL argument: @st.cache_data(ttl='1d')
-    """
+if workforce_file and healthcare_file:
+    df_workforce = pd.read_csv(workforce_file)
+    df_healthcare = pd.read_csv(healthcare_file, skiprows=4)  # Skipping first 4 rows
 
-    # Instead of a CSV on disk, you could read from an HTTP endpoint here too.
-    DATA_FILENAME = Path(__file__).parent/'data/gdp_data.csv'
-    raw_gdp_df = pd.read_csv(DATA_FILENAME)
+    # Clean column names
+    df_workforce.columns = df_workforce.columns.astype(str).str.strip()
+    df_healthcare.columns = df_healthcare.columns.astype(str).str.strip()
 
-    MIN_YEAR = 1960
-    MAX_YEAR = 2022
+    # Convert "Year" column to numeric
+    df_workforce["Year"] = pd.to_numeric(df_workforce["Year"], errors='coerce')
 
-    # The data above has columns like:
-    # - Country Name
-    # - Country Code
-    # - [Stuff I don't care about]
-    # - GDP for 1960
-    # - GDP for 1961
-    # - GDP for 1962
-    # - ...
-    # - GDP for 2022
-    #
-    # ...but I want this instead:
-    # - Country Name
-    # - Country Code
-    # - Year
-    # - GDP
-    #
-    # So let's pivot all those year-columns into two: Year and GDP
-    gdp_df = raw_gdp_df.melt(
-        ['Country Code'],
-        [str(x) for x in range(MIN_YEAR, MAX_YEAR + 1)],
-        'Year',
-        'GDP',
-    )
+    # Filter for year 2015
+    df_workforce_filtered = df_workforce[df_workforce["Year"] == 2015].dropna()
 
-    # Convert years from string to integers
-    gdp_df['Year'] = pd.to_numeric(gdp_df['Year'])
+    # Select relevant healthcare workforce categories
+    categories = [
+        "Medical doctors (per 10 000 population)", 
+        "Nursing and midwifery personnel (per 10 000 population)", 
+        "Dentists (per 10 000 population)", 
+        "Pharmacists  (per 10 000 population)"
+    ]
 
-    return gdp_df
+    # Ensure only existing columns are used
+    valid_categories = [col for col in categories if col in df_workforce_filtered.columns]
 
-gdp_df = get_gdp_data()
+    # Add "Total Healthcare Workers" column
+    df_workforce_filtered["Total Healthcare Workers"] = df_workforce_filtered[valid_categories].sum(axis=1)
 
-# -----------------------------------------------------------------------------
-# Draw the actual page
+    # Rename workforce column for merging
+    if "Countries, territories and areas" in df_workforce_filtered.columns:
+        df_workforce_filtered = df_workforce_filtered.rename(columns={"Countries, territories and areas": "Country Name"})
 
-# Set the title that appears at the top of the page.
-'''
-# :earth_americas: GDP dashboard
+    # ===========================
+    # Process Healthcare Expenditure Data
+    # ===========================
+    expected_columns = ["Country Name", "Country Code", "Indicator Name", "Indicator Code"]
+    available_columns = [col for col in expected_columns if col in df_healthcare.columns]
 
-Browse GDP data from the [World Bank Open Data](https://data.worldbank.org/) website. As you'll
-notice, the data only goes to 2022 right now, and datapoints for certain years are often missing.
-But it's otherwise a great (and did I mention _free_?) source of data.
-'''
+    # Melt dataset
+    df_melted = df_healthcare.melt(id_vars=available_columns, var_name="Year", value_name="Value")
 
-# Add some spacing
-''
-''
+    # Convert "Year" column to numeric
+    df_melted["Year"] = pd.to_numeric(df_melted["Year"], errors='coerce')
 
-min_value = gdp_df['Year'].min()
-max_value = gdp_df['Year'].max()
+    # Filter for year 2015
+    df_healthcare_filtered = df_melted[df_melted["Year"] == 2015].dropna()
 
-from_year, to_year = st.slider(
-    'Which years are you interested in?',
-    min_value=min_value,
-    max_value=max_value,
-    value=[min_value, max_value])
+    # Keep relevant columns
+    df_healthcare_filtered = df_healthcare_filtered[['Country Name', 'Year', 'Value']]
 
-countries = gdp_df['Country Code'].unique()
+    # ===========================
+    # Merge Datasets
+    # ===========================
+    df_merged = pd.merge(df_workforce_filtered, df_healthcare_filtered, on=["Country Name", "Year"], how="inner")
 
-if not len(countries):
-    st.warning("Select at least one country")
+    # Rename column for clarity
+    df_merged = df_merged.rename(columns={"Value": "Healthcare Expenditure"})
 
-selected_countries = st.multiselect(
-    'Which countries would you like to view?',
-    countries,
-    ['DEU', 'FRA', 'GBR', 'BRA', 'MEX', 'JPN'])
+    # ===========================
+    # Sidebar Selection
+    # ===========================
+    country_list = sorted(df_merged["Country Name"].unique())
+    selected_countries = st.sidebar.multiselect("Select Countries", country_list, default=country_list[:10])
 
-''
-''
-''
+    # Filter dataset based on selection
+    df_filtered = df_merged[df_merged["Country Name"].isin(selected_countries)]
 
-# Filter the data
-filtered_gdp_df = gdp_df[
-    (gdp_df['Country Code'].isin(selected_countries))
-    & (gdp_df['Year'] <= to_year)
-    & (from_year <= gdp_df['Year'])
-]
+    # ===========================
+    # Visualization
+    # ===========================
+    st.title("📊 Healthcare Workforce vs. Expenditure Dashboard")
+    st.markdown("This dashboard explores the correlation between healthcare workforce and expenditure in 2015.")
 
-st.header('GDP over time', divider='gray')
+    col1, col2 = st.columns([3, 2])
 
-''
+    with col1:
+        st.subheader("Scatter Plot: Healthcare Expenditure vs. Workforce")
 
-st.line_chart(
-    filtered_gdp_df,
-    x='Year',
-    y='GDP',
-    color='Country Code',
-)
+        fig, ax = plt.subplots(figsize=(10, 6))
+        sns.scatterplot(data=df_filtered, x="Healthcare Expenditure", y="Total Healthcare Workers", color="blue", alpha=0.7, ax=ax)
+        sns.regplot(data=df_filtered, x="Healthcare Expenditure", y="Total Healthcare Workers", scatter=False, color="red", ax=ax)
 
-''
-''
+        # Labels and title
+        ax.set_xlabel("Healthcare Expenditure (per capita)")
+        ax.set_ylabel("Total Healthcare Workers (per 10,000 population)")
+        ax.set_title("Correlation between Healthcare Expenditure and Total Healthcare Workers")
+        ax.grid(True, linestyle="--", alpha=0.6)
 
+        st.pyplot(fig)
 
-first_year = gdp_df[gdp_df['Year'] == from_year]
-last_year = gdp_df[gdp_df['Year'] == to_year]
+    with col2:
+        st.subheader("Data Table")
+        st.dataframe(df_filtered[['Country Name', 'Healthcare Expenditure', 'Total Healthcare Workers']])
 
-st.header(f'GDP in {to_year}', divider='gray')
-
-''
-
-cols = st.columns(4)
-
-for i, country in enumerate(selected_countries):
-    col = cols[i % len(cols)]
-
-    with col:
-        first_gdp = first_year[first_year['Country Code'] == country]['GDP'].iat[0] / 1000000000
-        last_gdp = last_year[last_year['Country Code'] == country]['GDP'].iat[0] / 1000000000
-
-        if math.isnan(first_gdp):
-            growth = 'n/a'
-            delta_color = 'off'
-        else:
-            growth = f'{last_gdp / first_gdp:,.2f}x'
-            delta_color = 'normal'
-
-        st.metric(
-            label=f'{country} GDP',
-            value=f'{last_gdp:,.0f}B',
-            delta=growth,
-            delta_color=delta_color
-        )
+else:
+    st.warning("Please upload both workforce and healthcare expenditure CSV files to proceed.")
