@@ -11,8 +11,8 @@ st.write("This dashboard visualizes immunisation and disease dataset.")
 @st.cache_data
 def load_data():
     try:
-        immunisation_df = pd.read_csv("/mnt/data/immunisation_data.csv")
-        disease_df = pd.read_csv("/mnt/data/disease_data.csv")
+        immunisation_df = pd.read_csv("/data/immunisation_expenditure.xlsx")
+        disease_df = pd.read_csv("/data/Infectious_Disease_data.csv")
         return immunisation_df, disease_df
     except Exception as e:
         st.error(f"Error loading data: {e}")
