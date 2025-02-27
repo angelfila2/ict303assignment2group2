@@ -15,12 +15,17 @@ st.set_page_config(
 # ===========================
 # Load Workforce Data
 # ===========================
-st.sidebar.header("📂 Upload Workforce Data")
-workforce_file = st.sidebar.file_uploader("Upload workforce.csv", type=["csv"])
+# st.sidebar.header("📂 Upload Workforce Data")
+# workforce_file = st.sidebar.file_uploader("Upload workforce.csv", type=["csv"])
 
-st.sidebar.header("📂 Upload Healthcare Expenditure Data")
-healthcare_file = st.sidebar.file_uploader("Upload healthcareExpenditure.csv", type=["csv"])
+# st.sidebar.header("📂 Upload Healthcare Expenditure Data")
+# healthcare_file = st.sidebar.file_uploader("Upload healthcareExpenditure.csv", type=["csv"])
 
+DATA_FILENAME = Path(__file__).parent/'data/workforce.csv'
+workforce_file = pd.read_csv(DATA_FILENAME)
+
+DATA_FILENAME = Path(__file__).parent/'data/healthcareExpenditure.csv'
+healthcare_file = pd.read_csv(DATA_FILENAME)
 if workforce_file and healthcare_file:
     df_workforce = pd.read_csv(workforce_file)
     df_healthcare = pd.read_csv(healthcare_file, skiprows=4)  # Skipping first 4 rows
