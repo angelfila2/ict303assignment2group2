@@ -7,12 +7,12 @@ import seaborn as sns
 st.title("📊 Damian Page Immunisation vs Disease Dashboard")
 st.write("This dashboard visualizes immunisation and disease dataset.")
 
-# Load dataset from uploaded CSV files
+# Load dataset from predefined file paths
 @st.cache_data
 def load_data():
     try:
-        immunisation_df = pd.read_csv("/data/Immunisation_Expenditure.xlsx")
-        disease_df = pd.read_csv("/data/Infectious_Disease_data.csv")
+        immunisation_df = pd.read_excel("/mnt/data/Immunisation_Expenditure.xlsx")
+        disease_df = pd.read_csv("/mnt/data/Infectious_Disease_data.csv")
         return immunisation_df, disease_df
     except Exception as e:
         st.error(f"Error loading data: {e}")
