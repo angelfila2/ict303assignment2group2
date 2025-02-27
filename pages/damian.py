@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 st.title("📊Damian Page pn")
 st.write("This page loads and processes GDP data.")
