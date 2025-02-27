@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
+# Print the current working directory to help locate the file
+st.write("Current working directory:", os.getcwd())
+
 # Streamlit page title and description
 st.title("📊 Damian Page Immunisation vs Disease Dashboard")
 st.write("This dashboard visualizes immunisation and disease datasets.")
@@ -12,9 +15,9 @@ st.write("This dashboard visualizes immunisation and disease datasets.")
 @st.cache_data
 def load_data():
     try:
-        # Use relative paths (assumes files are in the same directory as this script)
-        immunisation_path = "Immunisation_Expenditure.xlsx"
-        disease_path = "Infectious_Disease_data.csv"
+        # Update file paths based on your provided structure
+        immunisation_path = "gdp-dashboard/data/Immunization_expenditure.xlsx"
+        disease_path = "gdp-dashboard/data/Infectious_Disease.csv"
         
         # Check if the files exist
         if not os.path.exists(immunisation_path):
