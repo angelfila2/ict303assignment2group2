@@ -15,7 +15,7 @@ st.write("This dashboard visualizes immunisation and disease datasets.")
 
 @st.cache_data
 def load_data():
-    DATA_FILENAME = Path(__file__).parent / 'data/immunization_expenditure.csv'
+    DATA_FILENAME = Path(__file__).parent / 'data/Immunization_Expenditure.csv'
     df = pd.read_csv(DATA_FILENAME)
     df['Year'] = pd.to_numeric(df['Year'])  # Ensure year is numeric
     return df
