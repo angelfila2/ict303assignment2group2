@@ -13,7 +13,7 @@ def load_data(file_path):
         st.error("Error: 'ASEAN adult literacy rate.xlsx' not found. Did you upload it?")
         return None
 
-df = load_data("ASEAN adult literacy rate.xlsx")
+df = load_data("/data/ASEAN adult literacy rate.xlsx")
 
 if df is not None:
     # --- Website Content ---
