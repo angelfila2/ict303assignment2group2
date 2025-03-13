@@ -95,6 +95,8 @@ fig.update_layout(
 # Display Plotly figure in Streamlit
 st.plotly_chart(fig)
 
+st.metric(label="Optimal Investment", value=f"${optimal_expenditure:.2f}")
+
 # Display optimal healthcare expenditure point
 st.subheader("📌 Key Insights : Optimal Healthcare Investment")
 st.write(f"""
