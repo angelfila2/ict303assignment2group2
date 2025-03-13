@@ -12,7 +12,7 @@ def load_data(file_path):
         st.error("Error: 'ASEAN immunisation against measles and DPT.xlsx' not found. Did you upload it?")
         return None
 
-df = load_data("/data/ASEAN immunisation against measles and DPT.xlsx")
+df = load_data("data/ASEAN immunisation against measles and DPT.xlsx")
 
 if df is not None:
     # --- Website Content ---
