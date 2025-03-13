@@ -32,6 +32,7 @@ df_filtered = df[df["Year"] == selected_year]
 # Ensure relevant columns are numeric
 df_filtered["Healthcare Expenditure"] = pd.to_numeric(df_filtered["Healthcare Expenditure"], errors="coerce")
 df_filtered["Life Expectancy at Birth"] = pd.to_numeric(df_filtered["Life Expectancy at Birth"], errors="coerce")
+df_filtered = df_filtered[df_filtered["Gender"] == "Both sexes"]  # Filter for "Both sexes"
 
 # Remove NaN values
 df_filtered.dropna(subset=["Healthcare Expenditure", "Life Expectancy at Birth"], inplace=True)
