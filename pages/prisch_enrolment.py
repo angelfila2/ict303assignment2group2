@@ -12,7 +12,7 @@ def load_data(file_path):
         st.error("Error: 'ASEAN pri sch enrolment rate.xlsx' not found. Did you upload it?")
         return None
 
-df = load_data("ASEAN pri sch enrolment rate.xlsx")
+df = load_data("data/ASEAN pri sch enrolment rate.xlsx")
 
 if df is not None:
     # --- Website Content ---
