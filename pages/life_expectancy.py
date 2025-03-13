@@ -14,7 +14,7 @@ def load_data(file_path):
         st.error("Error: 'ASEAN average life expectancy.xlsx' not found. Did you upload it?")
         return None
 
-df = load_data("/data/ASEAN average life expectancy.xlsx")
+df = load_data("data/ASEAN average life expectancy.xlsx")
 
 if df is not None:
     # --- Website Content ---
