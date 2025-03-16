@@ -14,7 +14,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("I am gay")
+st.title("ASEAN Immunization & Disease Analysis")
 st.markdown(
     "Explore the relationship between immunization expenditures and infectious disease cases across ASEAN nations.")
 
