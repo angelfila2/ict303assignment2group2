@@ -22,8 +22,8 @@ st.markdown(
 @st.cache_data
 def load_data():
     # File Paths
-    file1 = r"C:\Users\Immor\PycharmProjects\ict303assignment2group2\data\Immunization_expenditure.csv"
-    file2 = r"C:\Users\Immor\PycharmProjects\ict303assignment2group2\data\Infectious_Disease.csv"
+    file1 = "data\Immunization_expenditure.csv"
+    file2 = "data\Infectious_Disease.csv"
 
     # Load data
     df_immunization = pd.read_csv(file1, encoding='ISO-8859-1')
