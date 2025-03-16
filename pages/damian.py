@@ -26,7 +26,8 @@ def load_data():
     file2 = "data/Infectious_Disease.csv"
 
     # Load data
-    df_immunization = pd.read_csv(file1)
+    df_immunization= pd.read_csv(file1, encoding='ISO-8859-1')
+    #df_immunization = pd.read_csv(file1)
     df_disease = pd.read_csv(file2)
     return df_immunization, df_disease
 
