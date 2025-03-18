@@ -207,11 +207,11 @@ def calculate_correlations(df, group_by='COUNTRYNAME'):
 @st.cache_data
 def load_data():
     # Replace with your actual file paths
-    file1 = "data\Immunization_expenditure.csv"
-    file2 = "data\Infectious_Disease.csv"
+    file1 = "data/Immunization_expenditure.csv"
+    file2 = "data/Infectious_Disease.csv"
 
     df_immunization = pd.read_csv(file1, encoding='ISO-8859-1')
-    df_disease = pd.read_csv(file2')
+    df_disease = pd.read_csv(file2)
     return df_immunization, df_disease
 
 
