@@ -136,8 +136,8 @@ import plotly.express as px
 import streamlit as st
 
 # --- Load Data ---
-life_expectancy_df = pd.read_csv('ict303assignment2group2-main/data/API_SP.DYN.LE00.IN_DS2_en_CSV_v2_76065.csv', skiprows=4)
-metadata_df = pd.read_csv("ict303assignment2group2-main/data/Metadata_Country_API_SP.DYN.LE00.IN_DS2_en_CSV_v2_76065.csv")
+life_expectancy_df = pd.read_csv('data/API_SP.DYN.LE00.IN_DS2_en_CSV_v2_76065.csv', skiprows=4)
+metadata_df = pd.read_csv("data/Metadata_Country_API_SP.DYN.LE00.IN_DS2_en_CSV_v2_76065.csv")
 
 # --- Process Data ---
 life_expectancy_df = life_expectancy_df[['Country Name', 'Country Code'] + [str(year) for year in range(2000, 2023)]]
@@ -331,8 +331,8 @@ import streamlit as st
 import statsmodels.api as sm
 
 # --- Load Datasets ---
-health_exp_df = pd.read_csv("ict303assignment2group2-main/data/API_SH.XPD.CHEX.PC.CD_DS2_en_csv_v2_75935.csv", skiprows=4)
-life_expectancy_df = pd.read_csv("ict303assignment2group2-main/data/API_SP.DYN.LE00.IN_DS2_en_CSV_v2_76065.csv", skiprows=4)
+health_exp_df = pd.read_csv("data/API_SH.XPD.CHEX.PC.CD_DS2_en_csv_v2_75935.csv", skiprows=4)
+life_expectancy_df = pd.read_csv("data/API_SP.DYN.LE00.IN_DS2_en_CSV_v2_76065.csv", skiprows=4)
 
 # --- Reshape Both to Long Format ---
 health_exp_long = health_exp_df.melt(
@@ -488,8 +488,8 @@ st.markdown("---")
 
 
 # --- Load Datasets ---
-health_exp_df = pd.read_csv('ict303assignment2group2-main/data/API_SH.XPD.CHEX.PC.CD_DS2_en_csv_v2_75935.csv', skiprows=4)
-life_expectancy_df = pd.read_csv('ict303assignment2group2-main/data/API_SP.DYN.LE00.IN_DS2_en_CSV_v2_76065.csv', skiprows=4)
+health_exp_df = pd.read_csv('data/API_SH.XPD.CHEX.PC.CD_DS2_en_csv_v2_75935.csv', skiprows=4)
+life_expectancy_df = pd.read_csv('data/API_SP.DYN.LE00.IN_DS2_en_CSV_v2_76065.csv', skiprows=4)
 
 # --- Reshape Both to Long Format ---
 health_exp_long = health_exp_df.melt(
@@ -669,9 +669,9 @@ import plotly.express as px
 import streamlit as st
 
 # Load data
-health_exp_df = pd.read_csv('ict303assignment2group2-main/data/API_SH.XPD.CHEX.PC.CD_DS2_en_csv_v2_75935.csv', skiprows=4)
-life_exp_df = pd.read_csv('ict303assignment2group2-main/data/API_SP.DYN.LE00.IN_DS2_en_CSV_v2_76065.csv', skiprows=4)
-metadata_df = pd.read_csv('ict303assignment2group2-main/data/Metadata_Country_API_SH.XPD.CHEX.PC.CD_DS2_en_csv_v2_75935.csv')
+health_exp_df = pd.read_csv('data/API_SH.XPD.CHEX.PC.CD_DS2_en_csv_v2_75935.csv', skiprows=4)
+life_exp_df = pd.read_csv('data/API_SP.DYN.LE00.IN_DS2_en_CSV_v2_76065.csv', skiprows=4)
+metadata_df = pd.read_csv('data/Metadata_Country_API_SH.XPD.CHEX.PC.CD_DS2_en_csv_v2_75935.csv')
 
 # Reshape
 health_long = health_exp_df.melt(id_vars=["Country Name", "Country Code"],
