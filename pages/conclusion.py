@@ -77,5 +77,3 @@ st.write(
     """
 )
 
-if st.button("Go back to Main Page"):  # Optional: Link back to the start
-    st.session_state.page = "main"
