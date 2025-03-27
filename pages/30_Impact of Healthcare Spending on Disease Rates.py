@@ -13,7 +13,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 # Page configuration
 st.set_page_config(page_title="Immunization & Disease Analysis", layout="wide")
-st.title("📊 Immunization Expenditure & Infectious Disease Analysis")
+st.title("📊 Impact of Healthcare Spending on Disease Rates")
 st.markdown("""
 This dashboard examines the correlation between **vaccination costs** and **cases of infectious diseases** over time in various nations.  
 We seek to determine whether **greater investment in healthcare** results in a **decrease in disease prevalence** by analyzing trends **globally** and specifically in **ASEAN**.
