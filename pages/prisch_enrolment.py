@@ -6,7 +6,7 @@ import plotly.express as px
 @st.cache_data
 def load_data(file_path):
     try:
-        df = pd.read_excel("ASEAN pri sch enrolment rate.xlsx")
+        df = pd.read_excel("data/ASEAN pri sch enrolment rate.xlsx")
         return df
     except FileNotFoundError:
         st.error("Error: 'ASEAN pri sch enrolment rate.xlsx' not found. Did you upload it?")
