@@ -9,9 +9,9 @@ st.set_page_config(
 st.title("ICT305 Assignment 2 Group 2")
 
 
-st.markdown("**Topic: The Foundational Role of Healthcare in Societal Well-being**")
-
-
+st.markdown("""
+<b>Topic: The Foundational Role of Healthcare in Societal Well-being <b>
+""")
 st.markdown("""
 
 
@@ -30,6 +30,23 @@ On an individual level, access to quality healthcare empowers people to live hea
 At the community level, strong healthcare systems foster social cohesion, reduce health disparities, and promote economic stability. When healthcare is accessible and equitable, communities thrive. Children can attend school, adults can work, and the elderly can age with dignity. Furthermore, effective public health measures, such as vaccinations and sanitation, protect entire communities from the spread of infectious diseases. The impact is seen in stronger social bonds, reduced crime rates, and a more vibrant and prosperous local economy.
 
 On a global scale, healthcare is a critical factor in international development, security, and economic prosperity. The spread of infectious diseases across borders, the challenges of providing healthcare in low-resource settings, and the rising cost of healthcare are all global concerns that demand international cooperation. By investing in and strengthening healthcare systems worldwide, nations can create a foundation for sustainable development, prosperity, and a more just and equitable future for all. This collaborative approach not only improves health outcomes but also strengthens global economies and promotes peace and stability. The impact of global healthcare initiatives is a more secure and interconnected world, with greater economic opportunity and reduced human suffering.
+
+
+""")
+
+st.markdown("""
+
+Student Name: Syafiq
+Student ID:
+
+Student Name: Davern
+Student ID: 
+
+Student Name: Damian Pang Ze Yu
+Student ID: 35214879
+
+Student Name: Tuan An
+Student ID:
 
 
 """)
