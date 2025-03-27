@@ -92,13 +92,15 @@ fig.update_layout(
 )
 
 # Display Plotly figure in Streamlit
-col1, col2 = st.columns([3, 1])  # Create two columns, left for the graph, right for the metric
+col1, col2 = st.columns([4, 1])  # Adjust the ratio for chart vs metric
 
 with col1:
-    st.plotly_chart(fig)
+    st.markdown("### Optimal Healthcare Expenditure to Maximize Life Expectancy (2020)")
+    st.pyplot(fig)  # assuming you plotted your figure as `fig`
 
 with col2:
-    st.metric(label="Optimal Investment", value=f"{optimal_expenditure:.2f}%")
+    st.markdown("### Optimal Investment")
+    st.markdown(f"<h1 style='text-align: center; color: white;'>{optimal_value:.2f}%</h1>", unsafe_allow_html=True)
 
 # Display optimal healthcare expenditure point
 st.subheader("📌 Key Insights : Optimal Healthcare Investment")
