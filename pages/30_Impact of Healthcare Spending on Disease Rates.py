@@ -14,9 +14,15 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 # Page configuration
 st.set_page_config(page_title="Immunization & Disease Analysis", layout="wide")
 st.title("📊 Immunization Expenditure & Infectious Disease Analysis")
-st.markdown(
-    "This dashboard analyzes the relationship between immunization expenditures and infectious disease cases across different countries over time.")
+st.markdown("""
+This dashboard examines the correlation between **vaccination costs** and **cases of infectious diseases** over time in various nations.  
+We seek to determine whether **greater investment in healthcare** results in a **decrease in disease prevalence** by analyzing trends **globally** and specifically in **ASEAN**.
 
+### 🔍 The dashboard provides:
+✅ **Global trends** in disease burden and vaccination spending 
+✅ **ASEAN-specific analysis** to identify regional differences 
+✅ **Correlation insights** to evaluate how immunization funding affects disease control 
+""")
 
 # Define helper functions
 def create_metrics(col1, col2, col3, metric1, value1, metric2, value2, metric3, value3):
