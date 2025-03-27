@@ -152,6 +152,4 @@ if df is not None:
 * **Hold local authorities accountable:** Advocate for policies and services that meet the immunization needs of children and families in their communities.
 """)
 
-    if st.button("Go to Conclusion Page"):
-        st.session_state.page = "conclusion"
-        st.experimental_rerun()
+
