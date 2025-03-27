@@ -140,8 +140,3 @@ if df is not None:
 """)
 
 
-
-
-    if st.button("Go to Immunisation Page"):
-        st.session_state.page = "immunisation"
-        st.experimental_rerun()
