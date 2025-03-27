@@ -15,7 +15,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 st.set_page_config(page_title="Immunization & Disease Analysis", layout="wide")
 st.title("📊 Immunization Expenditure & Infectious Disease Analysis")
 st.markdown(
-    "Test This dashboard analyzes the relationship between immunization expenditures and infectious disease cases across different countries over time.")
+    "This dashboard analyzes the relationship between immunization expenditures and infectious disease cases across different countries over time.")
 
 
 # Define helper functions
@@ -118,29 +118,6 @@ def plot_interactive_bar(data, x, y, title, xlabel, ylabel):
         hovermode="closest"
     )
 
-    # Add zoom and pan buttons
-    fig.update_layout(
-        updatemenus=[
-            dict(
-                type="buttons",
-                direction="left",
-                buttons=[
-                    dict(
-                        args=[{"yaxis.autorange": True, "xaxis.autorange": True}],
-                        label="Reset Zoom",
-                        method="relayout"
-                    )
-                ],
-                pad={"r": 10, "t": 10},
-                showactive=False,
-                x=0.11,
-                xanchor="left",
-                y=1.1,
-                yanchor="top"
-            ),
-        ]
-    )
-
     return fig
 
 
@@ -170,29 +147,6 @@ def plot_interactive_line(data, x, y, title, xlabel, ylabel, color=None, line_gr
         hovermode="closest"
     )
 
-    # Add zoom and pan buttons
-    fig.update_layout(
-        updatemenus=[
-            dict(
-                type="buttons",
-                direction="left",
-                buttons=[
-                    dict(
-                        args=[{"yaxis.autorange": True, "xaxis.autorange": True}],
-                        label="Reset Zoom",
-                        method="relayout"
-                    )
-                ],
-                pad={"r": 10, "t": 10},
-                showactive=False,
-                x=0.11,
-                xanchor="left",
-                y=1.1,
-                yanchor="top"
-            ),
-        ]
-    )
-
     return fig
 
 
@@ -207,7 +161,7 @@ def calculate_correlations(df, group_by='COUNTRYNAME'):
 @st.cache_data
 def load_data():
     # Replace with your actual file paths
-    file1 = "data/Immunization_expenditure.csv"
+    file1 = file1 = "data/Immunization_expenditure.csv"
     file2 = "data/Infectious_Disease.csv"
 
     df_immunization = pd.read_csv(file1, encoding='ISO-8859-1')
@@ -276,8 +230,9 @@ with global_tab:
 
     # Display metrics
     st.subheader("📈 Global Key Metrics")
+    metrics_cols = st.columns(3)
     create_metrics(
-        st.columns(3)[0], st.columns(3)[1], st.columns(3)[2],
+        metrics_cols[0], metrics_cols[1], metrics_cols[2],
         "Total Countries", len(df_global['COUNTRYNAME'].unique()),
         "Year Range", f"{global_filters['year_range'][0]} - {global_filters['year_range'][1]}",
         "Total Data Points", len(df_global)
@@ -370,8 +325,9 @@ with asean_tab:
 
     # Display metrics
     st.subheader("📈 ASEAN Key Metrics")
+    metrics_cols = st.columns(3)
     create_metrics(
-        st.columns(3)[0], st.columns(3)[1], st.columns(3)[2],
+        metrics_cols[0], metrics_cols[1], metrics_cols[2],
         "ASEAN Countries", len(df_asean['COUNTRYNAME'].unique()),
         "Year Range", f"{asean_filters['year_range'][0]} - {asean_filters['year_range'][1]}",
         "Total Data Points", len(df_asean)
@@ -461,29 +417,6 @@ with asean_tab:
                 yaxis_title='Spending Percentage',
                 barmode='group',
                 hovermode='closest'
-            )
-
-            # Add zoom and pan buttons
-            fig_spending.update_layout(
-                updatemenus=[
-                    dict(
-                        type="buttons",
-                        direction="left",
-                        buttons=[
-                            dict(
-                                args=[{"yaxis.autorange": True, "xaxis.autorange": True}],
-                                label="Reset Zoom",
-                                method="relayout"
-                            )
-                        ],
-                        pad={"r": 10, "t": 10},
-                        showactive=False,
-                        x=0.11,
-                        xanchor="left",
-                        y=1.1,
-                        yanchor="top"
-                    ),
-                ]
             )
 
             st.plotly_chart(fig_spending, use_container_width=True)
@@ -588,31 +521,6 @@ with asean_tab:
             fig_country.update_yaxes(title_text="Disease Cases", secondary_y=True, row=1, col=1)
             fig_country.update_yaxes(title_text="Spending Percentage", row=2, col=1)
 
-            # Add zoom and pan buttons
-            fig_country.update_layout(
-                updatemenus=[
-                    dict(
-                        type="buttons",
-                        direction="left",
-                        buttons=[
-                            dict(
-                                args=[{"yaxis.autorange": True, "xaxis.autorange": True,
-                                       "yaxis2.autorange": True, "yaxis3.autorange": True,
-                                       "xaxis2.autorange": True}],
-                                label="Reset Zoom",
-                                method="relayout"
-                            )
-                        ],
-                        pad={"r": 10, "t": 10},
-                        showactive=False,
-                        x=0.11,
-                        xanchor="left",
-                        y=1.1,
-                        yanchor="top"
-                    ),
-                ]
-            )
-
             st.plotly_chart(fig_country, use_container_width=True)
 
             # Key insights
@@ -624,12 +532,18 @@ with asean_tab:
             correlation = df_country['IMMUNISATION_EXPENDITURE'].corr(df_country['DISEASE_CASES'])
 
             # Display metrics
-            create_metrics(
-                st.columns(3)[0], st.columns(3)[1], st.columns(3)[2],
-                "Average Immunisation Expenditure", f"{avg_expenditure:.2f}",
-                "Average Disease Cases", f"{avg_cases:.2f}",
-                "Correlation", f"{correlation:.2f}"
-            )
+            key_metrics_cols = st.columns(3)
+            with key_metrics_cols[0]:
+                st.metric(label="Average Immunisation Expenditure",
+                          value=f"{avg_expenditure:.2f}")
+
+            with key_metrics_cols[1]:
+                st.metric(label="Average Disease Cases",
+                          value=f"{avg_cases:.2f}")
+
+            with key_metrics_cols[2]:
+                st.metric(label="Correlation Coefficient",
+                          value=f"{correlation:.2f}")
 
             # Interpretation
             correlation_text = "negative" if correlation < 0 else "positive"
@@ -650,32 +564,6 @@ with asean_tab:
 st.subheader("📊 Data Preview")
 st.dataframe(df_merged.head(10), use_container_width=True)
 
-# Add interactive data table
-st.subheader("🔍 Interactive Data Explorer")
-st.write("Use the search box and sorting features to explore the data")
-
-# Convert to interactive table with plotly
-fig_table = go.Figure(data=[go.Table(
-    header=dict(
-        values=list(df_merged.columns),
-        fill_color='royalblue',
-        align='left',
-        font=dict(color='white', size=12)
-    ),
-    cells=dict(
-        values=[df_merged[col] for col in df_merged.columns],
-        fill_color='lavender',
-        align='left'
-    )
-)])
-
-fig_table.update_layout(
-    height=500,
-    title="Full Dataset Preview (First 100 rows)"
-)
-
-st.plotly_chart(fig_table, use_container_width=True)
-
 # Download button
 csv = df_merged.to_csv(index=False)
 st.download_button(
@@ -689,8 +577,8 @@ st.download_button(
 with st.expander("📋 Data Source Information"):
     st.write("""
     **Data Sources:**
-    - Immunization Expenditure: Expenditure on vaccination programs
-    - Infectious Disease: Number of cases reported
+    - **[Immunization Expenditure](https://immunizationdata.who.int/global/wiise-detail-page/immunization-expenditure?ISO_3_CODE=&YEAR=)** : Expenditure on vaccination programs
+    - **[Infectious Disease](https://www.who.int/data/gho/data/indicators/indicator-details/GHO/uhc-sci-components-infectious-diseases)** : Number of cases reported
 
     **Analysis Notes:**
     - Data has been filtered to show only records with both immunization expenditure and disease cases
