@@ -8,7 +8,7 @@ import plotly.express as px
 @st.cache_data
 def load_data(file_path):
     try:
-        df = pd.read_excel("ASEAN average life expectancy.xlsx")
+        df = pd.read_excel("data/ASEAN average life expectancy.xlsx")
         return df
     except FileNotFoundError:
         st.error("Error: 'ASEAN average life expectancy.xlsx' not found. Did you upload it?")
