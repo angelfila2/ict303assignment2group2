@@ -4,15 +4,15 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
+
 st.set_page_config(
     page_title="Healthcare Spending Breakdown",
-   # page_icon="💰",
     layout="centered"
 )
-# Load the dataset
-file_path = Path("data/merged_lifeBirth_spend.csv" ) # Ensure the file is in the correct directory
-df = pd.read_csv(file_path)
 
+# Load the dataset
+file_path = Path("data/merged_lifeBirth_spend.csv")  # Ensure the file is in the correct directory
+df = pd.read_csv(file_path)
 
 # Streamlit Title & Description
 st.title("📊 Optimal Healthcare Expenditure to Maximize Life Expectancy")
@@ -22,6 +22,7 @@ for the selected year
 - A **3rd-degree polynomial regression** curve is fitted to model the trend.
 - The **optimal healthcare expenditure** level for **maximizing life expectancy** is highlighted.
 """)
+
 # Let user select the year dynamically
 available_years = sorted(df["Year"].unique(), reverse=True)
 selected_year = st.selectbox("📅 Select Year:", available_years, index=0)  # Default to latest year
@@ -52,8 +53,6 @@ y_vals = p(x_vals)
 # Find the optimal healthcare expenditure that maximizes life expectancy
 optimal_expenditure = x_vals[np.argmax(y_vals)]
 optimal_life_expectancy = max(y_vals)
-
-
 
 # Create an interactive scatter plot
 fig = px.scatter(
@@ -93,9 +92,13 @@ fig.update_layout(
 )
 
 # Display Plotly figure in Streamlit
-st.plotly_chart(fig)
+col1, col2 = st.columns([3, 1])  # Create two columns, left for the graph, right for the metric
 
-st.metric(label="Optimal Investment", value=f"${optimal_expenditure:.2f}")
+with col1:
+    st.plotly_chart(fig)
+
+with col2:
+    st.metric(label="Optimal Investment", value=f"{optimal_expenditure:.2f}%")
 
 # Display optimal healthcare expenditure point
 st.subheader("📌 Key Insights : Optimal Healthcare Investment")
@@ -107,13 +110,28 @@ st.subheader("📌 Recommendations")
 
 st.write("""
 ### **For Finance and Health Ministers**  
-✅ **Increase Healthcare Spending to Expand Medical Workforce**  
-   - The graph supports a **direct link between healthcare expenditure and the number of doctors**, reinforcing the need for **sustained or increased investments in healthcare.**  
-   - Increasing the number of job opportunities for doctors and healthcare professionals not only strengthens the healthcare system but also makes the country more attractive to aspiring medical professionals. By allocating a larger portion of the budget to healthcare manpower, governments can enhance workforce retention, attract top talent, and ensure a steady pipeline of skilled medical personnel. This strategic investment fosters a more resilient healthcare system while contributing to economic growth through job creation in the healthcare sector.
-### **For Healthcare Institutions & Hospital Administrators**  
-✅ **Improve Efficiency in Doctor Utilization**  
-   - The **Singapore model suggests** that a country can achieve **a higher doctor-to-patient ratio without extreme spending increases**—this could mean **optimizing training, digital healthcare solutions, or improving healthcare management.**  
-✅ **Strengthen Doctor Retention Strategies**  
-   - Increased spending on healthcare must be accompanied by **better working conditions, fair compensation, and incentives** to retain skilled medical professionals.
+✅ **Achieve the Optimal Healthcare Expenditure Level**  
+   - Based on the analysis, the **optimal healthcare expenditure** to maximize life expectancy in **{selected_year}** is **{optimal_expenditure:.2f}% of GDP**.  
+   - To achieve this optimal level of healthcare expenditure, it is crucial for the government to **prioritize investments** in healthcare. The optimal expenditure level should be the target for future budgets and healthcare policies, ensuring that enough resources are allocated to critical sectors such as **healthcare infrastructure**, **workforce expansion**, and **medical technology**.
+   
+✅ **Balanced Allocation of Funds Across Healthcare Sectors**  
+   - At the optimal expenditure level, funds should be strategically allocated across **medical personnel**, **healthcare facilities**, and **preventive health services**. This balanced allocation will ensure that all essential aspects of healthcare are properly supported, contributing to **longer life expectancy** while also improving healthcare access and quality.
 
+### **For Healthcare Institutions & Hospital Administrators**  
+✅ **Align Healthcare Investments with Optimal Expenditure Levels**  
+   - Healthcare institutions should align their investment strategies with the **optimal healthcare expenditure** level. This involves enhancing **resource management** to make the best use of the funds available and improving healthcare services at all levels. Institutions can achieve greater efficiency and effectiveness by focusing on areas that have the most significant impact on **life expectancy**.
+   
+✅ **Optimize Doctor Training and Utilization**  
+   - At the optimal level of expenditure, investing in **training more doctors** and healthcare professionals can improve healthcare delivery. Healthcare institutions should focus on **optimizing doctor utilization**, reducing inefficiencies, and improving the quality of care provided.
+
+### **For Policymakers**  
+✅ **Legislate for Sustained Investment in Healthcare**  
+   - Policymakers should ensure that **healthcare spending continues to meet the optimal expenditure level** over the long term. This may involve adjusting **healthcare budgets annually** and ensuring that funds are directed to the most critical areas, such as healthcare staffing, infrastructure, and medical research.
+   
+✅ **Focus on Sustainable Growth in Healthcare Spending**  
+   - Policymakers should prioritize the sustainability of healthcare spending by ensuring that healthcare budgets increase in line with economic growth and that the **optimal expenditure level** is maintained. This will help to ensure **consistent improvements** in life expectancy and healthcare quality over time.
+
+### **For the Public**  
+✅ **Encourage Health Investments for Long-Term Benefits**  
+   - At the **optimal healthcare expenditure level**, the public will benefit from better healthcare services, which include **access to medical professionals**, **advanced medical technologies**, and **better healthcare facilities**. Individuals should be informed about the benefits of these investments, such as better access to preventive care, which contributes to overall improved health outcomes.
 """)
