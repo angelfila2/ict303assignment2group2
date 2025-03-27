@@ -36,17 +36,17 @@ On a global scale, healthcare is a critical factor in international development,
 
 st.markdown("""
 
-Student Name: Syafiq
-Student ID:
+Student Name: Muhammad Syafiq Bin Wahinudin
+Student ID: 35279456
 
-Student Name: Davern
-Student ID: 
+Student Name: Davern Zhilong Sim 
+Student ID: 35245935
 
-Student Name: Damian Pang Ze Yu
+Student Name: Pang Damian Ze Yu
 Student ID: 35214879
 
-Student Name: Tuan An
-Student ID:
+Student Name: Tuan An Truong
+Student ID:35304835
 
 
 """)
