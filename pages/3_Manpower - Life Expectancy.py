@@ -35,9 +35,9 @@ df["Value"] = pd.to_numeric(df["Value"], errors="coerce")  # "Value" represents 
 # Remove NaN values
 df.dropna(subset=["Total Healthcare Workers per 10,000 Population", "Value", "Year"], inplace=True)
 
-
+selected_year=2015
 # Filter data for the selected year
-df_filtered = df[df["Year"] == 2015]
+df_filtered = df[df["Year"] == selected_year]
 
 # Compute Correlation Coefficient
 correlation, p_value = pearsonr(df_filtered["Total Healthcare Workers per 10,000 Population"], df_filtered["Value"])
