@@ -207,6 +207,4 @@ if df is not None:
 * \"Vote for representatives that support health and education initiatives.\"
 """)
 
-    # Navigation button to go to the next page
-    if st.button("Go to Primary School Enrolment Page"):
-        st.session_state.page = "prisch_enrolment"
+
