@@ -6,7 +6,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("Welcome to the GDP Dashboard")
+st.title("ICT305 Assignment 2 Group 2)
 
 
 
