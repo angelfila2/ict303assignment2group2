@@ -13,7 +13,7 @@ def load_data(file_path):
         st.error("Error: 'ASEAN adult literacy rate.xlsx' not found. Did you upload it?")
         return None
 
-df = load_data("data/ASEAN adult literacy rate.xlsx")
+df = load_data("ASEAN adult literacy rate.xlsx")
 
 if df is not None:
     # --- Website Content ---
@@ -120,10 +120,71 @@ A high literacy rate is foundational for individual empowerment and societal pro
     * Most countries show improvement or stability: The majority of countries exhibit either stable high literacy rates or upward trends, indicating continued progress in education.
     * Fluctuations in some countries: Cambodia and Viet Nam show some fluctuations in literacy rates, particularly for females. This could be due to various factors, including socioeconomic challenges, educational policy changes, or data collection inconsistencies.
 
-    **Analysis/Call to Action:**
-    While we can conclude that generally there is an increase in the overall literacy rates with females having steady increase over time, there needs to be more gender specific diseases taught to the respective gender which can help to better improve their lifestyles with better diseases prevention awareness.
+    **Analysis:**
+    *While we can conclude that generally there is an increase in the overall literacy rates with females having steady increase over time, there needs to be more gender specific diseases taught to the respective gender which can help to better improve their lifestyles with better diseases prevention awareness.
     Educational policymakers need to better consider what kind of knowledge should be taught as specific life phases especially in primary and secondary education levels.
+    
     """)
+
+    st.write(r"""
+**Calls to Action Based on Audience:**
+
+**For Patients and Individuals:**
+* Ask your healthcare provider to explain things in simple terms. Don't be afraid to ask questions until you understand.
+* Bring a friend or family member to appointments to help you understand and remember important information.
+* Use visual aids, like pictures or diagrams, to help you understand health information.
+* Seek out health literacy resources in your community, such as classes or workshops.
+* Advocate for clear and accessible health information in your community.
+
+**For Healthcare Providers (Doctors, Nurses, Pharmacists):**
+* Use plain language and avoid medical jargon when communicating with patients.
+* Use visual aids, teach-back methods, and other strategies to ensure patients understand their health information.
+* Provide written materials in multiple languages and at appropriate reading levels.
+* Offer health literacy training to staff to improve communication skills.
+* Collaborate with community organizations to provide health literacy resources.
+
+**For Public Health Organizations:**
+* Develop public health campaigns that use clear and simple language, visuals, and culturally appropriate messaging.
+* Partner with community leaders and organizations to reach populations with low literacy.
+* Provide health information in multiple formats, such as videos, audio recordings, and infographics.
+* Evaluate the effectiveness of health communication materials and strategies.
+* Advocate for policies that promote health literacy.
+
+**For Children and Families:**
+* Parents: Read to your children every day to improve their literacy skills and health knowledge.
+* Schools: Incorporate health education into the curriculum from an early age.
+* Community organizations: Provide family literacy programs that include health information.
+* Healthcare providers: Offer parenting education on health topics.
+* Advocate for increased access to early childhood education and literacy programs.
+
+**For Elderly Populations:**
+* Healthcare providers: Provide clear and concise medication instructions and appointment reminders.
+* Family members: Help elderly loved ones manage their medications and attend appointments.
+* Community centers: Offer health literacy workshops and support groups for seniors.
+* Advocate for senior-friendly health information and services.
+
+**For Marginalized and Underserved Communities:**
+* Community organizations: Provide culturally and linguistically appropriate health literacy resources.
+* Healthcare providers: Offer interpreter services and culturally sensitive care.
+* Advocate for policies that address health disparities and promote health equity.
+* Support programs that improve access to education and healthcare in underserved communities.
+
+**For Insurance Companies and Healthcare Systems:**
+* Invest in health literacy training for staff and providers.
+* Develop clear and easy-to-understand insurance and healthcare materials.
+* Support community-based health literacy programs.
+* Track and analyze data on health literacy and its impact on healthcare costs and outcomes.
+* Advocate for policies that promote health literacy and reduce healthcare disparities.
+
+**For Educational Institutions:**
+* Incorporate health education into all levels of curriculum.
+* Provide health literacy training to teachers and staff.
+* Partner with healthcare providers to offer health screenings and education to students.
+* Offer adult literacy programs that include health information.
+* Advocate for policies that support comprehensive health education in schools.
+""")
+
+
 
 if st.button("Go to Primary School Enrolment Page"):
     st.session_state.page = "prisch_enrolment"
