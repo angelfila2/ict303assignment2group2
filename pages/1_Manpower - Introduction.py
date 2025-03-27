@@ -64,7 +64,7 @@ else:
         df_selected, 
         values="Percentage", 
         names="Category", 
-        title=f"Healthcare Expenditure - {selected_year} in Singaproe",
+        title=f"Healthcare Expenditure - {selected_year} in Singapore",
         color_discrete_sequence=px.colors.qualitative.Set2
 
 
