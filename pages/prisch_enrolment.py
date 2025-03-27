@@ -12,7 +12,7 @@ def load_data(file_path):
         st.error("Error: 'ASEAN pri sch enrolment rate.xlsx' not found. Did you upload it?")
         return None
 
-df = load_data("data/ASEAN pri sch enrolment rate.xlsx")
+df = load_data("ASEAN pri sch enrolment rate.xlsx")
 
 if df is not None:
     # --- Website Content ---
@@ -99,13 +99,47 @@ if df is not None:
         * **Focus on Education:** The high overall enrolment rates point to a strong emphasis on education within ASEAN countries.
         * **Improvements in Access:** Countries like Cambodia and Laos show significant improvements in enrolment rates over the years, indicating efforts to expand educational access to more children.
 
-        **Analysis/Call to Action:**
+        **Analysis:**
 
         We can conclude that overall primary school enrolment rates are increasing. This is a good chance to better reach out to the public to better help them understand the importance of good healthcare and how it correlates to having better life expectancy over the long term with proper diseases prevention knowledge which can apply throughout their lives over the long term.
 
         This is an opportunity which the government can heavily capitalise on by educating people to prevent common diseases by teaching more than basic healthcare in school syllabuses which can indirectly help reduce expenditure in some healthcare areas as people can take action on their own to prevent common diseases and resources spent on combating this common diseases can be better used to be spent on more serious diseases or other aspects of healthcare which is still lacking. 
         """
     )
+
+    st.write(r"""
+**For Governments and Policymakers:**
+
+* **Increase investment in integrated health and education programs:** Allocate resources to initiatives that combine healthcare services with school-based interventions, such as school health clinics, nutrition programs, and health education.
+
+* **Reduce financial barriers to healthcare:** Implement policies that make healthcare more affordable and accessible for all families, such as subsidies, insurance programs, and the elimination of user fees.
+
+* **Improve healthcare infrastructure in rural and underserved areas:** Expand the reach of healthcare services to remote communities through mobile clinics, telemedicine, and training of local health workers.
+
+* **Strengthen data collection and monitoring:** Establish robust systems for collecting and analyzing data on children's health and school enrollment to track progress, identify disparities, and inform policy decisions.
+
+* **Promote inter-sectoral collaboration:** Foster partnerships between ministries of health, education, and social welfare to ensure a coordinated and comprehensive approach to addressing the needs of children and families.
+
+**For International Organizations and NGOs:**
+
+* **Provide technical assistance and funding:** Support SEA countries in developing and implementing effective health and education programs, particularly in resource-constrained settings.
+
+* **Share best practices and knowledge:** Facilitate the exchange of information and expertise on successful interventions and policies from across the region and the world.
+
+* **Advocate for increased attention to children's health and education:** Raise awareness of the importance of investing in children's well-being and advocate for policies that prioritize their needs.
+
+* **Monitor progress and hold governments accountable:** Track the implementation of commitments and policies related to children's health and education, and advocate for greater transparency and accountability.
+
+**For Communities and Civil Society:**
+
+* **Raise awareness of the importance of children's health and education:** Conduct community outreach activities to educate families about the benefits of healthcare and school enrollment.
+
+* **Support local health and education initiatives:** Participate in and contribute to programs that improve children's access to healthcare and schools.
+
+* **Hold local authorities accountable:** Advocate for policies and services that meet the needs of children and families in their communities.
+""")
+
+
 
 
     if st.button("Go to Immunisation Page"):
