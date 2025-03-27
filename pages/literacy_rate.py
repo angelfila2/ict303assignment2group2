@@ -7,7 +7,7 @@ from plotly.subplots import make_subplots
 @st.cache_data
 def load_data(file_path):
     try:
-        df = pd.read_excel(file_path)
+        df = pd.read_excel("ASEAN adult literacy rate.xlsx")
         return df
     except FileNotFoundError:
         st.error("Error: 'ASEAN adult literacy rate.xlsx' not found. Did you upload it?")
