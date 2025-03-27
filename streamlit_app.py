@@ -9,8 +9,19 @@ st.set_page_config(
 st.title("ICT305 Assignment 2 Group 2")
 
 
+st.markdown("""
+<b>Topic: The Foundational Role of Healthcare in Societal Well-being </b>
+""")
+st.markdown("""
 
-st.write("Select a page from the sidebar to begin your analysis.")
+
+Introduction:
+
+Healthcare is more than just the treatment of illness; it is a fundamental pillar that underpins the well-being of individuals, communities, and entire societies, reaching to the very health of our global population. At its core, robust healthcare ensures access to essential services, promotes preventive care, and mitigates the spread of disease, leading to healthier populations and increased life expectancy. The impact of healthcare extends far beyond the realm of medicine, profoundly influencing economic productivity, social equity, and overall quality of life.
+
+
+
+""")
 st.markdown("""
 
 
