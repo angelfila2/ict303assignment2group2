@@ -14,7 +14,7 @@ def load_data(file_path):
         st.error("Error: 'ASEAN average life expectancy.xlsx' not found. Did you upload it?")
         return None
 
-df = load_data("data/ASEAN average life expectancy.xlsx")
+df = load_data("ASEAN average life expectancy.xlsx")
 
 if df is not None:
     # --- Website Content ---
@@ -160,10 +160,52 @@ if df is not None:
      * **Singapore's exceptional performance:** Singapore stands out as a model for achieving high life expectancy, potentially due to its strong healthcare system and socioeconomic factors.
     """)
 
-    st.subheader("Analysis/Call to action")
+    st.subheader("Analysis")
     st.write("""
     While we can see that generally there are higher life expectancy for females over males, males have started to have increased life expectancy, and we should further explore into potential reasons why such as safety in more dangerous job environments can also be a health risk especially in hazardous environment. While individuals are responsible for their own lifestyles which contributes to their health and better awareness of this should be promoted, the government policy makers from various aspects of not just health, but also in areas such as manpower management should also have higher awareness to safety aspects which can also affect healthcare.
     """)
+
+    st.write(r"""
+**Calls to Action (Following Data Presentation):**
+
+**For Policymakers:**
+* \"Invest in integrated health and education programs to improve life expectancy and overall well-being.\"
+* \"Increase public funding for education and healthcare, particularly in underserved areas.\"
+* \"Develop national strategies to address health disparities and improve health literacy.\"
+* \"Strengthen regional collaboration to share best practices and resources.\"
+* \"Implement and enforce policies that improve access to clean water and sanitation.\"
+
+**For Healthcare Professionals:**
+* \"Advocate for improved access to healthcare services, especially for vulnerable populations.\"
+* \"Collaborate with educators to promote health education and preventive care.\"
+* \"Conduct research to identify and address the social determinants of health.\"
+* \"Participate in community outreach programs to improve health literacy.\"
+
+**For Educators:**
+* \"Integrate health education into the curriculum to promote healthy lifestyles.\"
+* \"Work with healthcare providers to address the health needs of students.\"
+* \"Advocate for policies that support the health and well-being of students and teachers.\"
+* "Promote critical thinking skills, to allow students to analyze health information."
+
+**For NGOs and Civil Society Organizations:**
+* \"Raise awareness about the importance of health and education equity.\"
+* \"Support community-based health and education initiatives.\"
+* \"Advocate for policy changes that address the social determinants of health.\"
+* \"Monitor and evaluate the impact of health and education programs.\"
+
+**For International Development Agencies and Donors:**
+* \"Provide funding and technical assistance for integrated health and education programs.\"
+* \"Support research and data collection to inform policy and practice.\"
+* \"Promote regional collaboration and knowledge sharing.\"
+* \"Invest in sustainable solutions that address the root causes of health and education disparities.\"
+
+**For the General Public:**
+* \"Support local initiatives that promote health and education.\"
+* \"Advocate for policies that improve access to health and education services.\"
+* \"Educate yourself and your family about healthy lifestyles.\"
+* \"Support organizations that are working to improve health and education outcomes.\"
+* \"Vote for representatives that support health and education initiatives.\"
+""")
 
     # Navigation button to go to the next page
     if st.button("Go to Primary School Enrolment Page"):
