@@ -92,7 +92,7 @@ fig.update_layout(
 )
 
 # Display Plotly figure in Streamlit
-col1, col2 = st.columns([4, 1])  # Adjust the ratio for chart vs metric
+col1, col2 = st.columns([3, 1])  # Adjust the ratio for chart vs metric
 
 with col1:
     st.markdown(f"### Optimal Healthcare Expenditure to Maximize Life Expectancy ({selected_year})")
@@ -101,7 +101,7 @@ with col1:
 
 with col2:
     st.markdown("### Optimal Investment")
-    st.markdown(f"<h1 style='text-align: center; color: white;'>{optimal_value:.2f}%</h1>", unsafe_allow_html=True)
+    st.markdown(f"<h1 style='text-align: center; color: white;'>{optimal_expenditure:.2f}%</h1>", unsafe_allow_html=True)
 
 # Display optimal healthcare expenditure point
 st.subheader("📌 Key Insights : Optimal Healthcare Investment")
