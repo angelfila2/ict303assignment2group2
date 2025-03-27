@@ -112,7 +112,7 @@ st.write("""
 ### **For Finance and Health Ministers**  
 ✅ **Achieve the Optimal Healthcare Expenditure Level**  
    - Based on the analysis, the **optimal healthcare expenditure** to maximize life expectancy in **{selected_year}** is **{optimal_expenditure:.2f}% of GDP**.  
-   - To achieve this optimal level of healthcare expenditure, it is crucial for the government to **prioritize investments** in healthcare. The optimal expenditure level should be the target for future budgets and healthcare policies, ensuring that enough resources are allocated to critical sectors such as **healthcare infrastructure**, **workforce expansion**, and **medical technology**.
+   - To achieve this optimal level of healthcare expenditure, it is crucial for the government to **prioritize investments** in healthcare. The optimal expenditure level should serve as a rough estimate for future budgets and healthcare policies, ensuring that enough resources are allocated to critical sectors such as **healthcare infrastructure**, **workforce expansion**, and **medical technology**.
    
 ✅ **Balanced Allocation of Funds Across Healthcare Sectors**  
    - At the optimal expenditure level, funds should be strategically allocated across **medical personnel**, **healthcare facilities**, and **preventive health services**. This balanced allocation will ensure that all essential aspects of healthcare are properly supported, contributing to **longer life expectancy** while also improving healthcare access and quality.
@@ -120,9 +120,6 @@ st.write("""
 ### **For Healthcare Institutions & Hospital Administrators**  
 ✅ **Align Healthcare Investments with Optimal Expenditure Levels**  
    - Healthcare institutions should align their investment strategies with the **optimal healthcare expenditure** level. This involves enhancing **resource management** to make the best use of the funds available and improving healthcare services at all levels. Institutions can achieve greater efficiency and effectiveness by focusing on areas that have the most significant impact on **life expectancy**.
-   
-✅ **Optimize Doctor Training and Utilization**  
-   - At the optimal level of expenditure, investing in **training more doctors** and healthcare professionals can improve healthcare delivery. Healthcare institutions should focus on **optimizing doctor utilization**, reducing inefficiencies, and improving the quality of care provided.
 
 ### **For Policymakers**  
 ✅ **Legislate for Sustained Investment in Healthcare**  
@@ -131,7 +128,4 @@ st.write("""
 ✅ **Focus on Sustainable Growth in Healthcare Spending**  
    - Policymakers should prioritize the sustainability of healthcare spending by ensuring that healthcare budgets increase in line with economic growth and that the **optimal expenditure level** is maintained. This will help to ensure **consistent improvements** in life expectancy and healthcare quality over time.
 
-### **For the Public**  
-✅ **Encourage Health Investments for Long-Term Benefits**  
-   - At the **optimal healthcare expenditure level**, the public will benefit from better healthcare services, which include **access to medical professionals**, **advanced medical technologies**, and **better healthcare facilities**. Individuals should be informed about the benefits of these investments, such as better access to preventive care, which contributes to overall improved health outcomes.
 """)
