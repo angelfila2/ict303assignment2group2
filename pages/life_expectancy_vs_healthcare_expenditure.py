@@ -434,7 +434,7 @@ st.markdown("""
 * **Positive Correlation:** The scatter plot clearly shows a positive correlation between healthcare expenditure per 
 capita (log scale) and life expectancy. As healthcare spending increases, life expectancy tends to rise.
 * **Non-Linear Relationship:** The regression line (red curve) is not a straight line, indicating a non-linear relationship. 
-The rate of increase in life expectancy slows down as healthcare spending increases, suggesting diminishing returns at higher expenditure levels.
+The rate of increase in life expectancy remains positive even at higher levels of healthcare expenditure. This suggests that significantly more healthcare spending can indeed continue to improve life expectancy.
 * **Color Gradient Over Time:** The color gradient from dark purple (2000) to bright yellow (2020) illustrates 
 how the relationship has evolved over time. While the positive correlation persists, the distribution of data points shifts, 
 indicating changes in healthcare spending and life expectancy across different countries.
