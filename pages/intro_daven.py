@@ -26,16 +26,4 @@ st.write(
     """
 )
 
-# if 'page' not in st.session_state:
-#     st.session_state.page = "literacy_rate"  # Start with the first page
 
-# if st.session_state.page == "literacy_rate":
-#     import literacy_rate
-# elif st.session_state.page == "life_expectancy":
-#     import life_expectancy
-# elif st.session_state.page == "prisch_enrolment":
-#     import prisch_enrolment
-# elif st.session_state.page == "immunisation":
-#     import immunisation
-# elif st.session_state.page == "conclusion":
-#     import conclusion
