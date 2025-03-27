@@ -91,7 +91,7 @@ st.write("""
 - **Depreciation & maintenance costs** are relatively stable.
 
 
-From the graph, it is evident that Singapore allocates nearly three times more to manpower costs compared to other areas in health care
+From the graph, it is evident that Singapore allocates nearly **three** times more to manpower costs compared to other areas in health care
 This significant disparity warrants further investigation to understand the underlying factors driving this expenditure. 
 Uncovering these insights will help assess the sustainability and effectiveness of Singapore’s healthcare spending strategy.""")
 
