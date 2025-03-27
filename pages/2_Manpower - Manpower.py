@@ -113,10 +113,10 @@ st.write("""
 ### Increasing Healthcare Workforce Leads to Improved Doctor-to-Patient Ratio
 - The line chart consistently shows an upward trend, indicating that as the number of medical doctors per 10,000 population increases, the doctor-to-patient ratio improves.
 This suggests that more healthcare workers allow for better patient distribution, reducing the workload per doctor and ensuring more efficient healthcare delivery.
-### Lower Doctor-to-Patient Ratios Result in Higher Quality of Care
+### Higher Doctor-to-Patient Ratios Result in Higher Quality of Care
 - Countries with more doctors per capita tend to have shorter patient wait times, better diagnosis rates, and improved treatment outcomes.
 A lower doctor-to-patient ratio means that doctors can spend more time with each patient, leading to better medical assessments, more personalized treatments, and improved patient satisfaction.
-Sustained Investment in Healthcare Workforce is Key to Improving Healthcare Access
+Sustained Investment in healthcare Workforce is Key to Improving Healthcare Access
 """)
 
 # Section: Recommendations
