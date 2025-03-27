@@ -15,11 +15,11 @@ st.write(
 st.write(
     """
     Join us on a journey through the following sections:
-
-    * **Literacy Rates:** Discover how literacy empowers individuals and strengthens communities.
+    
     * **Life Expectancy:** Explore the relationship between education and life expectancy, and uncover factors that contribute to longer, healthier lives.
-    * **Primary School Enrolment:** Understand the crucial role of primary education in laying the foundation for health literacy and better healthcare access.
+    * **Literacy Rates:** Discover how literacy empowers individuals and strengthens communities.
     * **Immunization:** Examine the link between education and immunization rates, and how they collectively contribute to healthier communities.
+    * **Primary School Enrolment:** Understand the crucial role of primary education in laying the foundation for health literacy and better healthcare access.
     * **Conclusion:** Reflect on the key findings and the transformative power of education in shaping a healthier future for ASEAN.
 
     Let's embark on this exploration together and discover how education can pave the way for a healthier, more prosperous ASEAN.
