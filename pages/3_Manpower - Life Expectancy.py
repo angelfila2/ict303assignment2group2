@@ -35,12 +35,9 @@ df["Value"] = pd.to_numeric(df["Value"], errors="coerce")  # "Value" represents 
 # Remove NaN values
 df.dropna(subset=["Total Healthcare Workers per 10,000 Population", "Value", "Year"], inplace=True)
 
-# Sidebar: Select Year
-available_years = sorted(df["Year"].unique(), reverse=True)
-selected_year = st.sidebar.selectbox("📅 Select Year:", available_years, index=0)
 
 # Filter data for the selected year
-df_filtered = df[df["Year"] == selected_year]
+df_filtered = df[df["Year"] == 2015]
 
 # Compute Correlation Coefficient
 correlation, p_value = pearsonr(df_filtered["Total Healthcare Workers per 10,000 Population"], df_filtered["Value"])
@@ -91,4 +88,4 @@ st.write(f"""
 ✅ **The correlation coefficient quantifies the relationship**, helping policymakers assess how effectively healthcare resources are distributed.  
 ✅ **Not just workforce size, but healthcare system efficiency matters**—countries should ensure that healthcare workers are well-trained and supported.  
 """)
-ss
+
