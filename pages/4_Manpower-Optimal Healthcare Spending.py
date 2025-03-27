@@ -95,8 +95,9 @@ fig.update_layout(
 col1, col2 = st.columns([4, 1])  # Adjust the ratio for chart vs metric
 
 with col1:
-    st.markdown("### Optimal Healthcare Expenditure to Maximize Life Expectancy (2020)")
-    st.pyplot(fig)  # assuming you plotted your figure as `fig`
+    st.markdown(f"### Optimal Healthcare Expenditure to Maximize Life Expectancy ({selected_year})")
+    st.plotly_chart(fig, use_container_width=True)
+
 
 with col2:
     st.markdown("### Optimal Investment")
