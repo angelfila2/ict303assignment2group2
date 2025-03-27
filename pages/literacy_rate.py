@@ -186,9 +186,7 @@ A high literacy rate is foundational for individual empowerment and societal pro
 
 
 
-if st.button("Go to Primary School Enrolment Page"):
-    st.session_state.page = "prisch_enrolment"
-    st.experimental_rerun()
+
 
 
 
