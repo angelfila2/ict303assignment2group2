@@ -9,7 +9,7 @@ st.set_page_config(
 st.title("ICT305 Assignment 2 Group 2")
 
 
-st.markdown("**Topic: The Foundational Role of Healthcare in Societal Well-being**")
+st.write("**Topic: The Foundational Role of Healthcare in Societal Well-being**")
 st.markdown("""
 
 
