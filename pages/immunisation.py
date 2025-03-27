@@ -12,7 +12,7 @@ def load_data(file_path):
         st.error("Error: 'ASEAN immunisation against measles and DPT.xlsx' not found. Did you upload it?")
         return None
 
-df = load_data("data/ASEAN immunisation against measles and DPT.xlsx")
+df = load_data("ASEAN immunisation against measles and DPT.xlsx")
 
 if df is not None:
     # --- Website Content ---
@@ -109,10 +109,48 @@ if df is not None:
         * **Success Factors:** Analysing the strategies of high-performing countries like Singapore and Brunei could provide valuable insights for other nations.
     """)
 
-    st.subheader("Analysis/Call to Action")
+    st.subheader("Analysis")
     st.write("""
         Countries that are more wealthy spend more in healthcare such as Brunei and Singapore being a consistent outlier have higher immunisation rates which prevent potential causes of early death such from common diseases such as Measles and DPT. We want to promote more expenditure in educating the general public and the government about the seriousness of such common diseases and improve the fatality rate from common diseases and how it leads to a long term investment in results such as having higher workforce in the future if people do not unnecessarily die from such diseases which can potentially help the economy as a future investment.
     """)
+
+    st.write(r"""
+**For Governments and Policymakers:**
+
+* **Increase investment in immunization programs:** Allocate sufficient resources to ensure that all populations, especially those in hard-to-reach areas, have access to vaccines. This includes funding for vaccine procurement, distribution, and administration.
+
+* **Strengthen immunization infrastructure:** Improve healthcare facilities, cold chain management, and logistics to ensure the safe and effective delivery of vaccines.
+
+* **Implement and enforce evidence-based immunization policies:** Establish clear vaccination schedules, make vaccines mandatory where appropriate, and address vaccine hesitancy through public education campaigns.
+
+* **Enhance surveillance and data collection:** Establish robust systems to monitor immunization coverage, track disease outbreaks, and evaluate the effectiveness of immunization programs.
+
+* **Promote collaboration and coordination:** Foster partnerships between government agencies, healthcare providers, international organizations, and other stakeholders to ensure a coordinated approach to immunization.
+
+* **Address vaccine hesitancy:** Implement targeted communication strategies to educate the public about the safety and benefits of vaccines, and to address misinformation.
+
+**For International Organizations and NGOs:**
+
+* **Provide technical and financial assistance:** Support countries in developing and implementing effective immunization programs, particularly in low- and middle-income countries.
+
+* **Facilitate vaccine access:** Work to ensure that all countries have access to affordable and high-quality vaccines.
+
+* **Support research and development:** Invest in the development of new and improved vaccines.
+
+* **Monitor global immunization coverage:** Track progress towards global immunization goals and hold governments accountable for meeting their commitments.
+
+* **Coordinate global immunization efforts:** Provide leadership and guidance to ensure a coordinated and effective global response to vaccine-preventable diseases.
+
+**For Communities and Civil Society:**
+
+* **Promote immunization awareness:** Conduct community outreach activities to educate families about the importance of vaccination.
+
+* **Support local immunization initiatives:** Participate in and contribute to programs that improve vaccine access and uptake.
+
+* **Advocate for immunization:** Work to ensure that immunization is a priority for local and national governments.
+
+* **Hold local authorities accountable:** Advocate for policies and services that meet the immunization needs of children and families in their communities.
+""")
 
     if st.button("Go to Conclusion Page"):
         st.session_state.page = "conclusion"
