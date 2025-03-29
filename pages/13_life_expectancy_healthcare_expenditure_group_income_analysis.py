@@ -4,9 +4,9 @@ import plotly.express as px
 import streamlit as st
 
 # Load data
-health_exp_df = pd.read_csv('ict303assignment2group2-main/data/API_SH.XPD.CHEX.PC.CD_DS2_en_csv_v2_75935.csv', skiprows=4)
-life_exp_df = pd.read_csv('ict303assignment2group2-main/data/API_SP.DYN.LE00.IN_DS2_en_CSV_v2_76065.csv', skiprows=4)
-metadata_df = pd.read_csv('ict303assignment2group2-main/data/Metadata_Country_API_SH.XPD.CHEX.PC.CD_DS2_en_csv_v2_75935.csv')
+health_exp_df = pd.read_csv('data/API_SH.XPD.CHEX.PC.CD_DS2_en_csv_v2_75935.csv', skiprows=4)
+life_exp_df = pd.read_csv('data/API_SP.DYN.LE00.IN_DS2_en_CSV_v2_76065.csv', skiprows=4)
+metadata_df = pd.read_csv('data/Metadata_Country_API_SH.XPD.CHEX.PC.CD_DS2_en_csv_v2_75935.csv')
 
 # Reshape
 health_long = health_exp_df.melt(id_vars=["Country Name", "Country Code"],
