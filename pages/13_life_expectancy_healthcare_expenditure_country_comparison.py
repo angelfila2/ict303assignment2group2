@@ -8,8 +8,8 @@ import statsmodels.api as sm
 
 
 # --- Load Datasets ---
-health_exp_df = pd.read_csv('ict303assignment2group2-main/data/API_SH.XPD.CHEX.PC.CD_DS2_en_csv_v2_75935.csv', skiprows=4)
-life_expectancy_df = pd.read_csv('ict303assignment2group2-main/data/API_SP.DYN.LE00.IN_DS2_en_CSV_v2_76065.csv', skiprows=4)
+health_exp_df = pd.read_csv('data/API_SH.XPD.CHEX.PC.CD_DS2_en_csv_v2_75935.csv', skiprows=4)
+life_expectancy_df = pd.read_csv('data/API_SP.DYN.LE00.IN_DS2_en_CSV_v2_76065.csv', skiprows=4)
 
 # --- Reshape Both to Long Format ---
 health_exp_long = health_exp_df.melt(
