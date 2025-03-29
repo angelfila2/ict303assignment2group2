@@ -111,10 +111,10 @@ st.write(f"""
 """)
 st.subheader("📌 Recommendations")
 
-st.write("""
+st.write(f"""
 ### **For Finance and Health Ministers**  
 ✅ **Achieve the Optimal Healthcare Expenditure Level**  
-   - Based on the analysis, the **optimal healthcare expenditure** to maximize life expectancy in **{selected_year}** is **{optimal_expenditure:.2f}% of GDP**.  
+   - Based on the analysis, the **optimal healthcare expenditure** to maximize life expectancy in **{selected_year}** is **{optimal_expenditure:.2f}% of GDP**. 
    - To achieve this optimal level of healthcare expenditure, it is crucial for the government to **prioritize investments** in healthcare. The optimal expenditure level should serve as a rough estimate for future budgets and healthcare policies, ensuring that enough resources are allocated to critical sectors such as **healthcare infrastructure**, **workforce expansion**, and **medical technology**.
    
 ✅ **Balanced Allocation of Funds Across Healthcare Sectors**  
