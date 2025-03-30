@@ -101,7 +101,7 @@ with col1:
 
 with col2:
     st.markdown("### Optimal Investment")
-    st.markdown(f"<h1 style='text-align: center; color: white;'>{optimal_expenditure:.2f}%</h1>", unsafe_allow_html=True)
+    st.markdown(f"<h1 style='text-align: center;'>{optimal_expenditure:.2f}%</h1>", unsafe_allow_html=True)
 
 # Display optimal healthcare expenditure point
 st.subheader("📌 Key Insights : Optimal Healthcare Investment")
