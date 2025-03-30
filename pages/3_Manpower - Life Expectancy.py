@@ -82,10 +82,23 @@ st.write(f"""
 """)
 
 # Conclusion
-st.markdown("### **🔍 Key Takeaways**")
+st.markdown("### **🔍 Key Insights**")
 st.write(f"""
 ✅ **A higher number of healthcare workers is generally associated with longer {ylabel.lower()}**, but the strength of this relationship varies by country.  
 ✅ **The correlation coefficient quantifies the relationship**, helping policymakers assess how effectively healthcare resources are distributed.  
 ✅ **Not just workforce size, but healthcare system efficiency matters**—countries should ensure that healthcare workers are well-trained and supported.  
 """)
 
+st.markdown("### Recommendations")
+st.markdown("""
+**For Finance Ministers:**
+- **Allocate Targeted Funding:**  
+  Recognize that increasing the total number of healthcare workers per 10,000 population is strongly correlated with improved life expectancy.Investments should be directed toward recruitment and sustainable workforce expansion.
+- **Economical Benefits:**  
+  A robust healthcare workforce can lead to a healthier population, which in turn supports higher productivity and long-term economic growth. Use this evidence to justify budget allocations.
+
+**For Health Ministers:**
+- **Focus on Workforce Expansion and Quality Improvement:**  
+  Develop policies that aim to increase the number of healthcare workers per 10,000 population while ensuring quality training and continuous professional development. This approach directly supports improved life expectancy.
+
+""")
