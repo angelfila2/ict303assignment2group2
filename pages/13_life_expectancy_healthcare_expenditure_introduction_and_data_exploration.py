@@ -6,10 +6,38 @@ import streamlit as st
 
 # App title
 st.title("Healthcare Expenditure: A Key Driver of Life Expectancy?")
-st.markdown("The fundamental question we seek to address is whether increased healthcare expenditure directly translates "
-            "to improvements in life expectancy. This analysis explores the global relationship between healthcare spending and life expectancy "
-            "outcomes from 2000 to 2022. We hypothesize that countries with higher healthcare expenditure per capita will demonstrate higher average life expectancies, "
-            "and we will examine the data to validate this assumption.")
+st.markdown("""
+This analysis investigates the critical relationship between healthcare expenditure and life expectancy worldwide, 
+spanning the years 2000 to 2022. Our central aim is to determine whether increased healthcare spending directly correlates 
+with improvements in life expectancy, and to understand the nuanced factors that influence this relationship.
+
+We hypothesize that countries with higher healthcare expenditure per capita will generally exhibit higher average life 
+expectancies. However, we anticipate that this relationship will vary across different national contexts, influenced by 
+factors such as income disparities, regional differences, and the efficiency of healthcare systems. To examine this, we 
+employ several analytical methods:
+
+1.  **Regression Analysis:** We quantify the impact of healthcare expenditure on life expectancy, exploring the nature 
+and strength of this relationship.
+2.  **Country-Specific Comparisons:** We compare selected countries to understand how national contexts and healthcare 
+systems affect the expenditure-life expectancy dynamic.
+3.  **Income Group Analysis:** We investigate the relationship between income levels, healthcare spending, and life 
+expectancy, examining how economic disparities influence health outcomes. Specifically, we analyze the correlation 
+between healthcare expenditure and life expectancy within different income groups, expecting to find varying strengths 
+of association that reflect systemic inequalities. This analysis is presented in a bar plot that highlights the 
+differences in correlation coefficients across income levels.
+
+Through these analyses, we seek to provide actionable insights for policymakers, healthcare investors, 
+public health organizations, and the general public, contributing to a deeper understanding of the complex interplay 
+between economic resources and health outcomes. Ultimately, this study aims to inform evidence-based decisions and 
+targeted interventions to enhance global health equity.
+
+Before diving into this comprehensive approach, it is important to provide an overview of the underlying data. Therefore, we begin 
+with a brief exploration of the life expectancy and healthcare expenditure datasets. This initial examination serves to 
+familiarize the user with the global trends, regional disparities, and income-based differences present in the data, 
+providing a crucial backdrop for interpreting the subsequent analytical findings. This exploration will include global 
+trend visualizations using choropleth maps and line charts.
+
+""")
 
 
 
